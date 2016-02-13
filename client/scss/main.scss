@@ -10,12 +10,15 @@ aside {
   height: 100%;
   width: $sidebar-width;
   background-color: #F0F0F0;
-  position: fixed;
   z-index: 20;
+  float: left;
+}
+
+#mapContainter {
+  height: 100%;
+  width: 100%;
 }
 
 #map {
   height: 100%;
-  width: 100%;
-  left: $sidebar-width;
 }
