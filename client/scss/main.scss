@@ -5,11 +5,13 @@ html, body {
 }
 
 aside {
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
   width: 200px;
-  height: 100%;
-  float: left;
-
   background-color: #F0F0F0;
+  position: fixed;
+  z-index: 20;
 }
 
 #map {
