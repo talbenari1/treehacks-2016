@@ -1,0 +1,19 @@
+{
+  "name": "treehacks-2016",
+  "version": "0.1.0",
+  "description": "Our TreeHacks hack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talbenari1/treehacks-2016.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talbenari1/treehacks-2016/issues"
+  },
+  "homepage": "https://github.com/talbenari1/treehacks-2016#readme"
+}
