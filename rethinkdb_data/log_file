@@ -1,0 +1,68 @@
+2016-02-13T08:40:06.509965000 0.042220s notice: Recursively removing directory /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data/tmp
+2016-02-13T08:40:06.511105000 0.043363s notice: Initializing directory /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data
+2016-02-13T08:40:06.511186000 0.043440s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data' did not already exist or is empty.)
+2016-02-13T08:40:06.511237000 0.043491s notice: Running rethinkdb 2.2.2 (CLANG 7.0.2 (clang-700.1.81))...
+2016-02-13T08:40:06.516379000 0.048634s notice: Running on Darwin 15.3.0 x86_64
+2016-02-13T08:40:06.516412000 0.048666s notice: Loading data from directory /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data
+2016-02-13T08:40:06.594454000 0.126654s info: Automatically using cache size of 100 MB
+2016-02-13T08:40:06.594463000 0.126663s warn: Cache size does not leave much memory for server and query overhead (available memory: 701 MB).
+2016-02-13T08:40:06.594475000 0.126675s warn: Cache size is very low and may impact performance.
+2016-02-13T08:40:06.596218000 0.128418s notice: Listening for intracluster connections on port 29015
+2016-02-13T08:40:06.600289000 0.132489s notice: Listening for client driver connections on port 28015
+2016-02-13T08:40:06.600457000 0.132657s notice: Listening for administrative HTTP connections on port 8080
+2016-02-13T08:40:06.600460000 0.132660s notice: Listening on addresses: 127.0.0.1, ::1
+2016-02-13T08:40:06.600461000 0.132661s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-02-13T08:40:06.600463000 0.132663s notice: Server ready, "CASE_local_417" b9e0adb2-1bee-436d-b88e-03d39b61ae9f
+2016-02-13T08:40:07.049916000 0.582116s notice: A newer version of the RethinkDB server is available: 2.2.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2016-02-13T08:41:01.758229000 55.288379s notice: Server got SIGINT from pid 13101, uid 501; shutting down...
+2016-02-13T08:41:01.759224000 55.289374s notice: Shutting down client connections...
+2016-02-13T08:41:01.759417000 55.289567s notice: All client connections closed.
+2016-02-13T08:41:01.759427000 55.289576s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-13T08:41:01.762601000 55.292751s notice: Storage engine shut down.
+2016-02-13T08:41:14.652810000 0.005795s notice: Running rethinkdb 2.2.2 (CLANG 7.0.2 (clang-700.1.81))...
+2016-02-13T08:41:14.656414000 0.009397s notice: Running on Darwin 15.3.0 x86_64
+2016-02-13T08:41:14.656450000 0.009431s notice: Loading data from directory /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data
+2016-02-13T08:41:14.673749000 0.026731s info: Automatically using cache size of 100 MB
+2016-02-13T08:41:14.673760000 0.026742s warn: Cache size does not leave much memory for server and query overhead (available memory: 762 MB).
+2016-02-13T08:41:14.673765000 0.026747s warn: Cache size is very low and may impact performance.
+2016-02-13T08:41:14.674755000 0.027737s notice: Listening for intracluster connections on port 29015
+2016-02-13T08:41:14.676084000 0.029066s notice: Listening for client driver connections on port 28015
+2016-02-13T08:41:14.676228000 0.029210s notice: Listening for administrative HTTP connections on port 8080
+2016-02-13T08:41:14.676231000 0.029213s notice: Listening on addresses: 127.0.0.1, ::1
+2016-02-13T08:41:14.676232000 0.029213s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-02-13T08:41:14.676234000 0.029216s notice: Server ready, "CASE_local_417" b9e0adb2-1bee-436d-b88e-03d39b61ae9f
+2016-02-13T08:41:15.018852000 0.371834s notice: A newer version of the RethinkDB server is available: 2.2.4. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2016-02-13T08:46:44.518563000 329.859295s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Added replica on this server.
+2016-02-13T08:46:46.014088000 331.354766s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Starting a new Raft election for term 1.
+2016-02-13T08:46:46.025399000 331.366077s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-13T08:49:47.447048000 512.781036s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Configuration is changing.
+2016-02-13T09:30:44.171424000 2808.223711s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Configuration is changing.
+2016-02-13T09:31:02.479176000 2826.530818s notice: Server got SIGINT from pid 13101, uid 501; shutting down...
+2016-02-13T09:31:02.479342000 2826.530983s notice: Shutting down client connections...
+2016-02-13T09:31:02.479559000 2826.531200s notice: All client connections closed.
+2016-02-13T09:31:02.479564000 2826.531205s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-13T09:31:02.484310000 2826.535951s notice: Storage engine shut down.
+2016-02-13T09:45:38.554991000 0.005744s notice: Running rethinkdb 2.2.4 (CLANG 7.0.2 (clang-700.1.81))...
+2016-02-13T09:45:38.565431000 0.016184s notice: Running on Darwin 15.3.0 x86_64
+2016-02-13T09:45:38.565596000 0.016344s notice: Loading data from directory /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data
+2016-02-13T09:45:38.628837000 0.079585s info: Automatically using cache size of 100 MB
+2016-02-13T09:45:38.628845000 0.079593s warn: Cache size is very low and may impact performance.
+2016-02-13T09:45:38.630482000 0.081230s notice: Listening for intracluster connections on port 29015
+2016-02-13T09:45:38.652068000 0.102816s notice: Listening for client driver connections on port 28015
+2016-02-13T09:45:38.652368000 0.103116s notice: Listening for administrative HTTP connections on port 8080
+2016-02-13T09:45:38.652370000 0.103118s notice: Listening on addresses: 127.0.0.1, ::1
+2016-02-13T09:45:38.652380000 0.103128s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-02-13T09:45:38.652381000 0.103129s notice: Server ready, "CASE_local_417" b9e0adb2-1bee-436d-b88e-03d39b61ae9f
+2016-02-13T09:45:40.020209000 1.470903s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Starting a new Raft election for term 2.
+2016-02-13T09:45:40.030878000 1.481572s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: This server is Raft leader for term 2. Latest log index is 4.
+2016-02-13T09:52:38.534394000 419.969640s notice: Removing file /Users/CASE/Documents/JYProgramming/personal/hackathons/treehacks-2016/rethinkdb_data/8746e668-3003-4962-aa8d-d230e208cb02
+2016-02-13T09:52:38.534403000 419.969648s info: Table 8746e668-3003-4962-aa8d-d230e208cb02: Deleted the table.
+2016-02-13T09:52:42.720049000 424.155134s info: Table 69057606-d1f9-4e48-8f6d-8de070b0f4b4: Added replica on this server.
+2016-02-13T09:52:44.277063000 425.712094s info: Table 69057606-d1f9-4e48-8f6d-8de070b0f4b4: Starting a new Raft election for term 1.
+2016-02-13T09:52:44.287808000 425.722839s info: Table 69057606-d1f9-4e48-8f6d-8de070b0f4b4: This server is Raft leader for term 1. Latest log index is 0.
+2016-02-13T10:04:50.248588000 1151.657039s info: Table 69057606-d1f9-4e48-8f6d-8de070b0f4b4: Configuration is changing.
+2016-02-13T10:37:29.663940000 3111.000885s notice: Server got SIGINT from pid 13101, uid 501; shutting down...
+2016-02-13T10:37:29.664123000 3111.001068s notice: Shutting down client connections...
+2016-02-13T10:37:29.664233000 3111.001178s notice: All client connections closed.
+2016-02-13T10:37:29.664237000 3111.001181s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-02-13T10:37:29.668979000 3111.005924s notice: Storage engine shut down.
