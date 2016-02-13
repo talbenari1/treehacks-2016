@@ -6,5 +6,5 @@ exports.server = {
 }
 
 exports.app = {
-  'name': 'TreeHacks'
+  'name': 'glogger'
 }

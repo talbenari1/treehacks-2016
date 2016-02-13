@@ -3,3 +3,6 @@ node_modules
 public
 
 *.log
+
+rethinkdb_data/*
+
