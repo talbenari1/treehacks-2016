@@ -11,7 +11,7 @@
   {% block body %}
   {% endblock %}
   {% for file in page.js %}
-    <script src="{{ file }}"></script>
+    <script async defer src="{{ file }}"></script>
   {% endfor %}
 </body>
 </html>

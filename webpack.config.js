@@ -9,6 +9,9 @@ const config = {
     path: path.join(__dirname, '/public'),
     filename: '[name].js'
   },
+  externals: {
+    google: 'window.google'
+  },
   module: {
     loaders: [{
       test: /\.js$/,

@@ -1,8 +1,17 @@
 'use strict'
 
+const express = require('express')
+const path = require('path')
+
 module.exports = (app) => {
+  app.use('/static', express.static(path.join(__dirname, 'public')))
+
   app.get('/', (req, res) => {
-    res.render('index.html')
+    res.render('index.html', {
+      'page': {
+        'js': ['https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
+      }
+    })
   })
 
   app.get('/l/:id', (req, res) => {
