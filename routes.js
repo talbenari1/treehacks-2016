@@ -9,7 +9,7 @@ module.exports = (app) => {
   app.get('/', (req, res) => {
     res.render('index.html', {
       'page': {
-        'js': ['https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
+        'js': ['static/main.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
       }
     })
   })
