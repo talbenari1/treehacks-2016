@@ -13,11 +13,14 @@ aside {
   position: fixed;
   z-index: 20;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  float: left;
+}
+
+#mapContainter {
+  height: 100%;
+  width: 100%;
 }
 
 #map {
   height: 100%;
-  width: 100%;
-  left: $sidebar-width;
-  z-index: 10;
 }
