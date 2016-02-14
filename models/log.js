@@ -15,7 +15,9 @@ let Log = thinky.createModel('Log', {
     'depart': type.date().default(r.now()),
     'blog_post': {
       'text': type.string()
-    }
+    },
+    'lat': type.number(),
+    'lon': type.number()
   }]
 })
 

@@ -15,7 +15,7 @@ const logger = require('./logger.js')
 app.use(require('morgan')('dev', { 'stream': logger.stream }))
 app.use(bodyParser.json())
 
-nunjucks.configure('client/views', {
+nunjucks.configure('views', {
   'autoescape': true,
   'express': app,
   'tags': {

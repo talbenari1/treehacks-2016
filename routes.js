@@ -10,6 +10,7 @@ const Log = require('./models/log.js')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
+  app.use('/views', express.static(path.join(__dirname, 'client', 'views')))
 
   app.get('/', (req, res) => {
     r.table('Log').orderBy({ 'index': 'log_create_date' }).limit(10).run().then((recents) => {
