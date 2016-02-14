@@ -1,7 +1,7 @@
 'use strict'                                                                                                                                                 
 import '../../scss/home.scss'
 var app = angular.module('homePage', []);
-app.controller('homePageController', function($scope) {
+app.controller('HomePageController', ['$scope','$http', function($scope, $http) {
   $scope.waypoints = [];
   //$scope.photo = '';
 
@@ -27,11 +27,19 @@ app.controller('homePageController', function($scope) {
     }
     console.log("got here");
   }
+
+  // contains text to send to server
+  var data = {
+    searches: []
+  }
+
   function fillInBar() {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
     $scope.waypoints.push(place);
+    data.searches.push(place.formatted_address);
     $scope.$apply();
+    requestServer(data);
   }
 
   // Bias the autocomplete object to the user's geographical location,
@@ -51,11 +59,21 @@ app.controller('homePageController', function($scope) {
     }
   }
 
-
   angular.element(document).ready(function () {
     autocomplete();
     geolocate();
-  })
+  });
+  
+
+  function requestServer() {
+    return $http.post('/search', data).then(function(res) {
+      console.log(res);
+      $scope.trips = res.data;
+    }, function() {
+      console.log('fail'); 
+    });
+  } 
+  
 
   $scope.trips = [
       { 
@@ -75,6 +93,5 @@ app.controller('homePageController', function($scope) {
         body: '. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
       }
   ];
-  
-});
+}]);
 
