@@ -31,8 +31,18 @@ module.exports = (app) => {
     // Search the database for objects with id = :id (aka hashLink)
   })
 
-  app.post('/l/:id', (req, res) => {
-    // create a new trip
+  app.put('/l/:id', (req, res) => {
+    let objectId = req.params.id
+    const body = req.body
+
+    const newLog = new Log({
+      title: 
+    }).save()
+    .then((log) => {
+
+    }).error((err) => {
+
+    })
   })
 
   app.get('/search', (req, res) => {
