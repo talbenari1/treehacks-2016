@@ -4,35 +4,33 @@
 
 import '../../scss/home.scss'
 import '../../scss/log.scss'
-let app = angular.module('homePage', ['ngRoute']);
+let app = angular.module('homePage', ['ngRoute'])
 
 app.config(['$routeProvider', '$locationProvider',
-  function($routeProvider, $locationProvider) {
+  function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/l/:id', {
         templateUrl: '../../templates/log.html',
-        controller: 'HomePageController',
+        controller: 'HomePageController'
       })
       .when('/', {
         templateUrl: '../../templates/search.html',
-        controller: 'HomePageController',
-      });
+        controller: 'HomePageController'
+      })
+  }
+])
 
-//    $locationProvider.html5Mode(true);
-}]);
-
-app.controller('HomePageController', ['$scope','$http', '$window', '$location', '$route', function ($scope, $http, $window, $location, $route) {
+app.controller('HomePageController', ['$scope', '$http', '$window', '$location', '$route', function ($scope, $http, $window, $location, $route) {
   $scope.moment = $window.moment
-  $scope.waypoints = [];
-  //$scope.photo = '';
-  let autocomplete;
+  $scope.waypoints = []
+  let autocomplete
 
   $scope.trips = getVisitedCities(recents)
 
   function getVisitedCities (logs) {
-    logs.forEach(log => {
+    logs.forEach((log) => {
       if (typeof log.cities !== 'string') {
-        log.citiesVisited = log.cities.map(city => city.name).join(', ')
+        log.citiesVisited = log.cities.map((city) => city.name).join(', ')
       }
     })
     return logs
@@ -62,14 +60,14 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
     searches: []
   }
 
-  function fillInBar() {
+  function fillInBar () {
     // Get the place details from the autocomplete object.
-    var place = autocomplete.getPlace();
-    $scope.waypoints.push(place);
-    data.searches.push(place.formatted_address);
-    requestServer(data);
-    if ($location.path() != ('/')) $location.path('/');
-    $scope.$apply();
+    let place = autocomplete.getPlace()
+    $scope.waypoints.push(place)
+    data.searches.push(place.formatted_address)
+    requestServer(data)
+    if ($location.path() !== ('/')) $location.path('/')
+    $scope.$apply()
   }
 
   // Bias the autocomplete object to the user's geographical location,
@@ -89,15 +87,15 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
     }
   }
 
-  function requestServer() {
-    return $http.post('/search', data).then(function(res) {
-      $scope.trips = getVisitedCities(res.data);
-    }, function() {
-      console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!");
-    });
+  function requestServer () {
+    return $http.post('/search', data).then(function (res) {
+      $scope.trips = getVisitedCities(res.data)
+    }, function () {
+      console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!")
+    })
   }
 
-  $scope.initMap = function() {
+  $scope.initMap = function () {
     if ($location.path().indexOf('/l/') === 0) {
       new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-new
         center: { lat: 39.8282, lng: -98.5795 },
@@ -107,12 +105,12 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
     }
   }
 
-  $scope.generateMap = function(trip) {
-    $location.path('/l/'+ trip.id);
+  $scope.generateMap = function (trip) {
+    $location.path('/l/' + trip.id)
   }
 
   angular.element(document).ready(function () {
-    initAutocomplete();
-    geolocate();
-  });
-}]);
+    initAutocomplete()
+    geolocate()
+  })
+}])
