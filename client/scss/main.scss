@@ -7,32 +7,41 @@ $sidebar-width: 300px;
 }
 
 html, body {
-  font-family: Roboto;
   position: relative;
+
   height: 100%;
   margin: 0;
+
+  font-family: Roboto;
 }
 
 aside {
-  height: 100%;
-  width: $sidebar-width;
-  background-color: #F9F9F9;
   z-index: 20;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
   float: left;
 
+  width: $sidebar-width;
+  height: 100%;
+
+  background-color: #F9F9F9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
   #search {
-    text-align: center;
     padding: 20px;
 
+    text-align: center;
+
     input {
-      font: inherit;
       width: 250px;
       padding: 10px;
-      outline: none;
+
+      transition: border-color .25s;
+
       border: 1px solid #DDDDDD;
       border-radius: 2px;
-      transition: border-color .25s;
+      outline: none;
+
+      font: inherit;
 
       &:hover {
         border-color: #BBBBBB;
@@ -45,9 +54,9 @@ aside {
   }
 }
 
-#mapContainter {
-  height: 100%;
+#mapContainer {
   width: 100%;
+  height: 100%;
 }
 
 #map {
