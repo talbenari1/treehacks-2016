@@ -11,13 +11,17 @@ app.config(['$routeProvider', '$locationProvider',
       .when('/l/:id', {
         templateUrl: '../../views/log.html',
         controller: 'HomePageController',
+      })
+      .when('/l', {
+        templateUrl: '../../views/search.html',
+        controller: 'HomePageController',
       });
 
 //    $locationProvider.html5Mode(true);
 }]);
 
-app.controller('HomePageController', ['$scope','$http', '$location', '$route', function ($scope, $http, $location, $route) {
-
+app.controller('HomePageController', ['$scope','$http', '$window', '$location', '$route', function ($scope, $http, $window, $location, $route) {
+  $scope.moment = $window.moment
   $scope.waypoints = [];
   //$scope.photo = '';
   let autocomplete;

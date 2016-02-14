@@ -1,0 +1,22 @@
+<div id="trip-container">
+     <div class="trips grow" ng-repeat="trip in trips" >
+       <div id="trips-wrapper" ng-click="generateMap(trip)">
+          <span class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          </span>
+          <div class="title" >
+            {{ trip.title }}
+          </div>
+          <div class="destinations">
+            {{ trip.cities }}
+          </div>
+          <div class="time">
+            {{ trip.log_create_date }}
+          </div>
+          <div class="description">
+            {{ trip.body }}
+          </div>
+       </div>
+    </div>
+</div>
+
