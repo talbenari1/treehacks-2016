@@ -16,6 +16,14 @@ app.use(require('morgan')('dev', { 'stream': logger.stream }))
 nunjucks.configure('client/views', {
   'autoescape': true,
   'express': app,
+  'tags': {
+    blockStart: '<%',
+    blockEnd: '%>',
+    variableStart: '<$',
+    variableEnd: '$>',
+    commentStart: '<#',
+    commentEnd: '#>'
+  },
   'watch': config.server.development // reload templates when in development
 })
 
