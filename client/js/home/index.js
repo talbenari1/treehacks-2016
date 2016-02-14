@@ -17,6 +17,15 @@ app.controller('homePageController', function ($scope) {
     autocomplete.addListener('place_changed', fillInBar)
   }
 
+  // grab photos from maps
+  function createPhoto (place) { // eslint-disable-line no-unused-vars
+    var photos = place.photos
+    if (!photos) {
+      return
+    } else {
+      return photos
+    }
+  }
   function fillInBar () {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace()
