@@ -1,17 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
-
-$sidebar-width: 350px;
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  font-family: Roboto;
-  position: relative;
-  height: 100%;
-  margin: 0;
-}
+$sidebar-width: 350px;   
 
 aside {
   height: 100%;
@@ -40,16 +27,8 @@ aside {
 
       &:focus, &:active {
         border-color: #4D90FE;
-      }
+      }                                                                                                                                                      
     }
   }
 }
 
-#mapContainter {
-  height: 100%;
-  width: 100%;
-}
-
-#map {
-  height: 100%;
-}

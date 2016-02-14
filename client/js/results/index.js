@@ -2,7 +2,7 @@
 
 'use strict'
 
-import '../../scss/main.scss'
+import '../../scss/results.scss'
 
 window.initMap = () => {
   new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-new
