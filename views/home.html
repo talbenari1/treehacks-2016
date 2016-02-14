@@ -2,7 +2,7 @@
 <% block body %>
 
 <div ng-app="homePage" ng-controller="HomePageController" ng-cloak>
- <!--sidebar--> 
+ <!--sidebar-->
  <aside>
     <div id="search">
       <div>
@@ -22,7 +22,7 @@
   </aside>
 
   <!--main content-->
-  <div ng-view></div>
+  <div ng-view onload="initMap()"></div>
 </div>
 
 <script>var recents = <$ recents | safe $>;</script>

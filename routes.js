@@ -10,7 +10,7 @@ const Log = require('./models/log.js')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
-  app.use('/views', express.static(path.join(__dirname, 'client', 'views')))
+  app.use('/templates', express.static(path.join(__dirname, 'client', 'templates')))
 
   app.get('/', (req, res) => {
     r.table('Log').orderBy({ 'index': 'log_create_date' }).limit(10).run().then((recents) => {
@@ -22,7 +22,8 @@ module.exports = (app) => {
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js',
             'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js',
             '/static/home.js',
-            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
+            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places',
+            '/static/log.js'
           ]
         },
         'recents': JSON.stringify(recents)
@@ -38,17 +39,6 @@ module.exports = (app) => {
     }).save().then((user) => {
       console.log(user)
       res.send(hashLink)
-    })
-  })
-
-  app.get('/l/:id', (req, res) => {
-    r.table('Log').get(req.params.id).run().then((log) => {
-      res.render('log.html', {
-        'name': 'Logs',
-        'page': {
-          'js': ['/static/log.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
-        }
-      })
     })
   })
 

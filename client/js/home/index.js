@@ -3,17 +3,18 @@
 'use strict'
 
 import '../../scss/home.scss'
+import '../../scss/log.scss'
 let app = angular.module('homePage', ['ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/l/:id', {
-        templateUrl: '../../views/log.html',
+        templateUrl: '../../templates/log.html',
         controller: 'HomePageController',
       })
-      .when('/l', {
-        templateUrl: '../../views/search.html',
+      .when('/', {
+        templateUrl: '../../templates/search.html',
         controller: 'HomePageController',
       });
 
@@ -30,7 +31,9 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
 
   function getVisitedCities (logs) {
     logs.forEach(log => {
-      log.cities = log.cities.map(city => city.name).join(', ')
+      if (typeof log.cities !== 'string') {
+        log.citiesVisited = log.cities.map(city => city.name).join(', ')
+      }
     })
     return logs
   }
@@ -91,6 +94,17 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
     }, function() {
       console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!");
     });
+  }
+
+  $scope.initMap = function() {
+    if ($location.path().indexOf('/l/') === 0) {
+      console.log(document.getElementById('map'));
+      new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-new
+        center: { lat: 39.8282, lng: -98.5795 },
+        zoom: 5,
+        disableDefaultUI: true
+      })
+    }
   }
 
   $scope.generateMap = function(trip) {
