@@ -18,7 +18,7 @@ const config = {
       exclude: /node_modules/,
       loader: 'babel?cacheDirectory'
     }, {
-      test: /\.scss$/,
+      test: /\.s?css$/,
       loader: 'style!css!sass'
     }]
   }

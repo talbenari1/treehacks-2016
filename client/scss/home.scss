@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);         
 @import "partials/_sidebar.scss";
 @import "partials/_pagesetup.scss";
 
@@ -7,10 +6,51 @@
   float: right;
 }
 
+#trips-wrapper {
+
+  box-shadow: 0 1px 2px rgba(0,0,0,0.24);
+  &:hover {
+    cursor: pointer; cursor: hand;
+  }
+  padding: 45px;
+}
+
 .trips {
   margin: 50px;
+  margin: 40px;
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  
+  .destinations {
+    font-style: italic;
+  }
+
+  .time {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+ 
+  .description {
+    font-size: small; 
+  }
+
 }
 
 .rating {
   float: right;
+}
+
+.grow {
+  transition: 0.35s ease;
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  transition: 0.7s ease;
 }

@@ -3,19 +3,32 @@
 
 <aside>
   <div id="search">
-    <input type="text" placeholder="Search">
+    <div>
+      <input type="text" placeholder="Search">
+    </div>
   </div>
 </aside>
 
 <div id="trip-container" ng-app="homePage" ng-controller="homePageController" ng-cloak>
-   <div class="trips" ng-repeat="trip in trips" >
-      <em>{{trip.title}}</em>
-      {{trip.citiesVisited}}<br>
-      {{trip.body}}
-    <div class="rating">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-    </div>
-   </div>
+   <div class="trips grow" ng-repeat="trip in trips" >
+     <div id="trips-wrapper">
+      <span class="rating">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      </span>
+      <div class="title" >
+        {{trip.title}}
+      </div>
+      <div class="destinations">
+        {{trip.citiesVisited}}
+      </div>
+      <div class="time">
+        {{trip.time}}
+      </div>
+      <div class="description">
+        {{trip.body}}
+      </div>
+     </div>
+  </div>
 </div>
 
 <% endblock %>
