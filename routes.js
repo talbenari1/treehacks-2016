@@ -15,6 +15,14 @@ module.exports = (app) => {
     })
   })
 
+  app.get('/new', (req, res) => {
+    res.render('new.html', {
+      'page': {
+        'name': 'new'
+      }
+    })
+  })
+
   app.get('/l/:id', (req, res) => {
     // return the trip
   })
