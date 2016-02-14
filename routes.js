@@ -17,10 +17,10 @@ module.exports = (app) => {
         'name': 'Home',
         'page': {
           'js': [
-             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js', 
-             'static/home.js',
-             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
-           ]
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js',
+            'static/home.js',
+            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
+          ]
         },
         'recents': recents
       })

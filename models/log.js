@@ -6,7 +6,7 @@ const r = thinky.r
 
 let Log = thinky.createModel('Log', {
   'id': type.string(),
-  'title': type.string().max(70).alphanum(),
+  'title': type.string().max(70).regex(/\w+/),
   'author': type.string().max(35).regex(/\w+/),
   'log_create_date': type.date().default(r.now()),
   'cities': [{
