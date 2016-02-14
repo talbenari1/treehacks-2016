@@ -14,7 +14,7 @@ exports.isClean = (obj) => {
   for (let item in obj) {
     if (obj.hasOwnProperty(item)) {
       if (obj[item].constructor && obj[item].constructor === 'Object') {
-        exports.sanitize(obj[item])
+        exports.isClean(obj[item])
       }
       if (!obj[item]) {
         return false
