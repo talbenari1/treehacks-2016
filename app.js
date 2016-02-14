@@ -2,6 +2,7 @@
 
 const express = require('express')
 const nunjucks = require('nunjucks')
+const bodyParser = require('body-parser')
 
 const config = require('./config.js')
 const app = express()
@@ -12,6 +13,7 @@ app.locals = { 'app': config.app }
 
 const logger = require('./logger.js')
 app.use(require('morgan')('dev', { 'stream': logger.stream }))
+app.use(bodyParser.json())
 
 nunjucks.configure('client/views', {
   'autoescape': true,

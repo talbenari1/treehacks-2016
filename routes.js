@@ -2,7 +2,9 @@
 
 const express = require('express')
 const path = require('path')
-const models = require('./models')
+const thinky = require('./database.js')
+const r = thinky.r
+const Log = require('./models/log.js')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
@@ -11,7 +13,7 @@ module.exports = (app) => {
     res.render('home.html', {
       'name': 'Home',
       'page': {
-        'js': ['https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js','static/home.js']
+        'js': ['https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js', 'static/home.js']
       }
     })
   })
@@ -25,23 +27,41 @@ module.exports = (app) => {
     })
   })
 
-  app.get('/new', (req, res) => {
-    res.render('new.html', {
-      'page': {
-        'name': 'new'
-      }
+  app.post('/new', (req, res) => {
+    // Save empty object in database
+    let hashLink = require('bs58').encode(require('crypto').randomBytes(6))
+    new Log({
+      'id': hashLink
+    }).save().then((user) => {
+      console.log(user)
     })
+    res.send(hashLink)
   })
 
   app.get('/l/:id', (req, res) => {
-    // return the trip
+    // Search the database for objects with id = :id (aka hashLink)
   })
 
   app.post('/l/:id', (req, res) => {
     // create a new trip
   })
 
-  app.get('/search', (req, res) => {
-    // return a series of results
+  app.post('/search', (req, res) => {
+    const searches = req.body.searches
+    let logs = Log
+
+    searches.forEach((search) => {
+      logs = logs.filter(r.row('cities').contains({
+        name: search
+      }))
+    })
+
+    logs.run().then((values) => {
+      values = values.map((value) => value.toObject())
+
+      console.log(values[0].constructor)
+    }).error((value) => {
+      console.log('FAIL')
+    })
   })
 }
