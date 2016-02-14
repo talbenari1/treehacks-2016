@@ -2,7 +2,10 @@
 
 const express = require('express')
 const path = require('path')
+const util = require('./util.js')
+
 const thinky = require('./database.js')
+const r = thinky.r
 const Log = require('./models/log.js')
 
 module.exports = (app) => {
@@ -35,14 +38,15 @@ module.exports = (app) => {
     let objectId = req.params.id
     const body = req.body
 
-    const newLog = new Log({
-      title: 
-    }).save()
-    .then((log) => {
-
-    }).error((err) => {
-
-    })
+    if (util.isClean(body)) {
+      Log.get(objectId).run().then((log) => {
+        Log.merge(body).save().then((result) => {
+          res.status(200).end()
+        })
+      })
+    } else {
+      res.status(400).json({ 'error': 'Missing or invalid params' })
+    }
   })
 
   app.get('/search', (req, res) => {
