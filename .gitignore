@@ -3,6 +3,7 @@ node_modules
 public
 
 *.log
+*.swp
 
-rethinkdb_data/*
+rethinkdb_data
 

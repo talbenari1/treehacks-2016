@@ -13,7 +13,7 @@ app.locals = { 'app': config.app }
 const logger = require('./logger.js')
 app.use(require('morgan')('dev', { 'stream': logger.stream }))
 
-nunjucks.configure('views', {
+nunjucks.configure('client/views', {
   'autoescape': true,
   'express': app,
   'watch': config.server.development // reload templates when in development

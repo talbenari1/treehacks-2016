@@ -1,6 +1,6 @@
 'use strict'
 
-const thinky = require(__dirname + 'database.js')
+const thinky = require('../database.js')
 const type = thinky.type
 // const r = thinky.r
 
@@ -9,4 +9,4 @@ let Blog = thinky.createModel('Blog', {
   'sites': [type.string().alphanum()]
 })
 
-exports.Blog = Blog
+module.exports = Blog
