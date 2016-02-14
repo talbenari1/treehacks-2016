@@ -68,6 +68,7 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
     $scope.waypoints.push(place);
     data.searches.push(place.formatted_address);
     requestServer(data);
+    if ($location.path() != ('/')) $location.path('/');
     $scope.$apply();
   }
 
@@ -98,7 +99,6 @@ app.controller('HomePageController', ['$scope','$http', '$window', '$location', 
 
   $scope.initMap = function() {
     if ($location.path().indexOf('/l/') === 0) {
-      console.log(document.getElementById('map'));
       new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-new
         center: { lat: 39.8282, lng: -98.5795 },
         zoom: 5,
