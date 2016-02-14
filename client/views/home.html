@@ -31,7 +31,7 @@
             {{ trip.title }}
           </div>
           <div class="destinations">
-            {{ trip.cities.map(function (city) {return city.name}).join(', ') }}
+            {{ trip.cities }}
           </div>
           <div class="time">
             {{ trip.log_create_date }}

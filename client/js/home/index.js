@@ -6,6 +6,12 @@ import '../../scss/home.scss'
 let app = angular.module('homePage', [])
 app.controller('homePageController', function ($scope) {
   $scope.waypoints = []
+
+  recents.forEach(recent => {
+    recent.cities = recent.cities.map(city => city.name).join(', ')
+  })
+
+  $scope.trips = recents
   let autocomplete
 
   function initAutocomplete () {
@@ -54,6 +60,4 @@ app.controller('homePageController', function ($scope) {
     initAutocomplete()
     geolocate()
   })
-
-  $scope.trips = recents
 })
