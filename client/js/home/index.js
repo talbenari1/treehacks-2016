@@ -67,11 +67,9 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
 
   function requestServer() {
     return $http.post('/search', data).then(function(res) {
-      console.log(res);
-      $scope.trips = res.data;
-      console.log($scope.trips);
+      $scope.trips = JSON.parse(res.data);
     }, function() {
-      console.log('fail'); 
+      console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!"); 
     });
   } 
 
