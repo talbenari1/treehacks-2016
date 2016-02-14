@@ -34,8 +34,8 @@ module.exports = (app) => {
       'id': hashLink
     }).save().then((user) => {
       console.log(user)
+      res.send(hashLink)
     })
-    res.send(hashLink)
   })
 
   app.get('/l/:id', (req, res) => {
