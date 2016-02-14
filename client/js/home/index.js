@@ -44,8 +44,8 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
     var place = autocomplete.getPlace();
     $scope.waypoints.push(place);
     data.searches.push(place.formatted_address);
-    $scope.$apply();
     requestServer(data);
+    $scope.$apply();
   }
 
   // Bias the autocomplete object to the user's geographical location,
@@ -69,6 +69,7 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
     return $http.post('/search', data).then(function(res) {
       console.log(res);
       $scope.trips = res.data;
+      console.log($scope.trips);
     }, function() {
       console.log('fail'); 
     });
