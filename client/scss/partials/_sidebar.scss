@@ -1,8 +1,9 @@
-$sidebar-width: 350px;   
-
 aside {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: 100%;
-  width: $sidebar-width;
+  width: 26%;
   background-color: #F9F9F9;
   z-index: 20;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -14,7 +15,7 @@ aside {
 
     input {
       font: inherit;
-      width: 300px;
+      width: 95%;
       padding: 10px;
       outline: none;
       border: 1px solid #DDDDDD;

@@ -1,10 +1,24 @@
-{% extends 'layout.html' %}                                                                                                                                    
+{% extends 'layout.html' %}
+
 {% block body %}
+
 <aside>
   <div id="search">
     <input type="text" placeholder="Search">
   </div>
 </aside>
+
+<div id="trip-container" ng-app="homePage" ng-controller="homePageController" ng-cloak>
+   <div class="trips" ng-repeat="trip in trips" >
+      dfalskdjf asdfio jasdi a
+      <em>{{trip.title}}</em>
+      {{trip.citiesVisited}}<br>
+      {{trip.body}}
+    <div class="rating">
+      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    </div>
+   </div>
+</div>
 
 {% endblock %}
 

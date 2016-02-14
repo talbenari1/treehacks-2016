@@ -2,3 +2,15 @@
 @import "partials/_sidebar.scss";
 @import "partials/_pagesetup.scss";
 
+#trip-container {
+  width: 74%; 
+  float: right;
+}
+
+.trips {
+  margin: 50px;
+}
+
+.rating {
+  float: right;
+}
