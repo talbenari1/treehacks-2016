@@ -4,7 +4,7 @@
 
 import '../../scss/home.scss'
 let app = angular.module('homePage', []);
-app.controller('HomePageController', ['$scope','$http', '$window', '$location', '$route' function ($scope, $http, $window, $location, $route) {
+app.controller('HomePageController', ['$scope','$http', '$window', '$location', function ($scope, $http, $window, $location) {
   $scope.moment = $window.moment
   $scope.waypoints = [];
   //$scope.photo = '';
