@@ -22,7 +22,7 @@ module.exports = (app) => {
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js',
             'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js',
             '/static/home.js',
-            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places',
+            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places,drawing',
             '/static/log.js'
           ]
         },
@@ -39,6 +39,14 @@ module.exports = (app) => {
     }).save().then((user) => {
       console.log(user)
       res.send(hashLink)
+    })
+  })
+
+  app.get('/l/:id', (req, res) => {
+    Log.get(req.params.id).run().then((log) => {
+      res.send(log)
+    }).error((e) => {
+      res.status(404).end()
     })
   })
 
@@ -59,7 +67,7 @@ module.exports = (app) => {
 
   app.post('/search', (req, res) => {
     const searches = req.body.searches
-    Log.filter(r.row('cities').contains(city => {
+    Log.filter(r.row('cities').contains((city) => {
       const name = city('name')
       return searches.reduce((hasCity, search) => {
         if (hasCity) {
@@ -68,9 +76,9 @@ module.exports = (app) => {
 
         return false
       }, true)
-    })).limit(10).run().then(values => {
+    })).limit(10).run().then((values) => {
       res.send(values)
-    }).error(err => {
+    }).error((err) => {
       console.log(err)
     })
   })

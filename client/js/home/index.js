@@ -96,11 +96,46 @@ app.controller('HomePageController', ['$scope', '$http', '$window', '$location',
   }
 
   $scope.initMap = function () {
+    console.log('initMap')
     if ($location.path().indexOf('/l/') === 0) {
-      new google.maps.Map(document.getElementById('map'), { // eslint-disable-line no-new
+      let map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 39.8282, lng: -98.5795 },
         zoom: 5,
         disableDefaultUI: true
+      })
+      let geocoder = new google.maps.Geocoder()
+      $http({
+        'method': 'GET',
+        url: $location.path()
+      }).then((res) => {
+        let bounds = new google.maps.LatLngBounds()
+        let path = []
+        res.data.cities.forEach((city) => {
+          geocoder.geocode({ 'address': city.name }, (results, status) => {
+            if (status === google.maps.GeocoderStatus.OK) {
+              let marker = new google.maps.Marker({
+                'map': map,
+                position: results[0].geometry.location
+              })
+              path.push(new google.maps.LatLng({lat: marker.position.lat(), lng: marker.position.lng()}))
+              bounds.extend(marker.position)
+            } else {
+              console.error('Geocode was not successful for the following reason: ' + status)
+            }
+          })
+        })
+        google.maps.event.addListenerOnce(map, 'idle', () => {
+          map.fitBounds(bounds)
+          console.log(path)
+          let line = new google.maps.Polyline({
+            'path': path,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          })
+          line.setMap(map)
+        })
       })
     }
   }
