@@ -1,4 +1,3 @@
-A
 /* globals google angular recents */
 
 'use strict'
@@ -11,8 +10,7 @@ app.config(['$routeProvider', '$locationProvider',
     $routeProvider
       .when('/l/:id', {
         templateUrl: '../../views/log.html',
-        controller: 'BookCtrl',
-        controllerAs: 'book'
+        controller: 'HomePageController',
       });
 
 //    $locationProvider.html5Mode(true);

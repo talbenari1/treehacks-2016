@@ -2,13 +2,13 @@
 <% block body %>
 
 <div ng-app="homePage" ng-controller="HomePageController" ng-cloak>
-  <aside>
+ <!--sidebar--> 
+ <aside>
     <div id="search">
       <div>
         <input id="pac-input" type="text" placeholder="Search">
       </div>
     </div>
-
     <div id="searchresults" >
       <div ng-repeat="waypoint in waypoints">
         <div class="results">
@@ -21,27 +21,8 @@
     </div>
   </aside>
 
-  <div id="trip-container">
-     <div class="trips grow" ng-repeat="trip in trips" >
-       <div id="trips-wrapper" ng-click="generateMap(trip)">
-          <span class="rating">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          </span>
-          <div class="title" >
-            {{ trip.title }}
-          </div>
-          <div class="destinations">
-            {{ trip.cities }}
-          </div>
-          <div class="time">
-            {{ trip.log_create_date }}
-          </div>
-          <div class="description">
-            {{ trip.body }}
-          </div>
-       </div>
-    </div>
-  </div>
+  <!--main content-->
+  <div ng-view></div>
 </div>
 
 <script>var recents = <$ recents | safe $>;</script>
