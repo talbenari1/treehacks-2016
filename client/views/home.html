@@ -1,0 +1,47 @@
+<% extends 'layout.html' %>
+<% block body %>
+
+<div ng-app="homePage" ng-controller="homePageController" ng-cloak>
+  <aside>
+    <div id="search">
+      <div>
+        <input id="pac-input" type="text" placeholder="Search">
+      </div>
+    </div>
+
+    <div id="searchresults" >
+      <div ng-repeat="waypoint in waypoints">
+        <div class="results grow">
+          <span class="result-image"><img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png"/></span>
+          <span class="results-names">
+            {{waypoint.formatted_address}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div id="trip-container">
+     <div class="trips grow" ng-repeat="trip in trips" >
+       <div id="trips-wrapper">
+          <span class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          </span>
+          <div class="title" >
+            {{trip.title}}
+          </div>
+          <div class="destinations">
+            {{trip.citiesVisited}}
+          </div>
+          <div class="time">
+            {{trip.time}}
+          </div>
+          <div class="description">
+            {{trip.body}}
+          </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<% endblock %>
