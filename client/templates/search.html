@@ -8,14 +8,15 @@
             {{ trip.title }}
           </div>
           <div class="destinations">
-            {{ trip.citiesVisited }}
+             {{ trip.citiesVisited }}
           </div>
           <div class="time">
-            {{ trip.log_create_date }}
+            {{ moment(trip.log_create_date).fromNow() }}
           </div>
           <div class="description">
             {{ trip.body }}
           </div>
        </div>
     </div>
+  </div>
 </div>
