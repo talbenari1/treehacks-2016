@@ -1,6 +1,6 @@
 'use strict'
 
-const thinky = require(__dirname + 'database.js')
+const thinky = require('../database.js')
 const type = thinky.type
 const r = thinky.r
 const City = require('./city.js')
@@ -13,4 +13,4 @@ let Log = thinky.createModel('Log', {
 
 Log.hasAndBelongsToMany(City, 'cities', 'id', 'id')
 
-exports.Log = Log
+module.exports = Log

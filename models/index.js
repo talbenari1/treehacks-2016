@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  'Log': require('./logs.js'),
+  'Log': require('./log.js'),
   'City': require('./city.js'),
   'Blog': require('./blog.js')
 }

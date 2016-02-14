@@ -2,6 +2,7 @@
 
 const express = require('express')
 const path = require('path')
+const models = require('./models')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
