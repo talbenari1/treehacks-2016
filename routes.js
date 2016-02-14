@@ -18,7 +18,8 @@ module.exports = (app) => {
         'page': {
           'js': [
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js',
-            'static/home.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js',
+            '/static/home.js',
             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
           ]
         },
@@ -41,9 +42,9 @@ module.exports = (app) => {
   app.get('/l/:id', (req, res) => {
     r.table('Log').get(req.params.id).run().then((log) => {
       res.render('log.html', {
-        'name': 'Results',
+        'name': 'Logs',
         'page': {
-          'js': ['static/log.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
+          'js': ['/static/log.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
         }
       })
     })

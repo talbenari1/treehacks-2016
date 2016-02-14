@@ -10,10 +10,15 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
   //$scope.photo = '';
   let autocomplete;
 
-  recents.forEach(recent => {
-    recent.cities = recent.cities.map(city => city.name).join(', ')
-  })
-  $scope.trips = recents
+  $scope.trips = getVisitedCities(recents)
+
+  function getVisitedCities (logs) {
+    logs.forEach(log => {
+      log.cities = log.cities.map(city => city.name).join(', ')
+    })
+
+    return logs
+  }
 
   function initAutocomplete () {
     // Create the autocomplete object, restricting the search to geographical location types.
@@ -67,11 +72,11 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
 
   function requestServer() {
     return $http.post('/search', data).then(function(res) {
-      $scope.trips = JSON.parse(res.data);
+      $scope.trips = getVisitedCities(res.data);
     }, function() {
-      console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!"); 
+      console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!");
     });
-  } 
+  }
 
   angular.element(document).ready(function () {
     initAutocomplete();
