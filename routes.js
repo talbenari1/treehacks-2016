@@ -27,15 +27,6 @@ module.exports = (app) => {
     })
   })
 
-  app.get('/results', (req, res) => {
-    res.render('results.html', {
-      'name': 'Results',
-      'page': {
-        'js': ['static/results.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
-      }
-    })
-  })
-
   app.post('/new', (req, res) => {
     // Save empty object in database
     let hashLink = require('bs58').encode(require('crypto').randomBytes(6))
@@ -49,7 +40,12 @@ module.exports = (app) => {
 
   app.get('/l/:id', (req, res) => {
     r.table('Log').get(req.params.id).run().then((log) => {
-      res.render('')
+      res.render('results.html', {
+        'name': 'Results',
+        'page': {
+          'js': ['static/results.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
+        }
+      })
     })
   })
 
