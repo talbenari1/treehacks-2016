@@ -46,17 +46,17 @@ module.exports = (app) => {
     const searches = req.body.searches
     let logs = models.Log
 
-    searches.forEach(search => {
+    searches.forEach((search) => {
       logs = logs.filter(r.row('cities').contains({
         name: search
       }))
     })
 
-    logs.run().then(values => {
-      values = values.map(value => value.toObject())
+    logs.run().then((values) => {
+      values = values.map((value) => value.toObject())
 
       console.log(values[0].constructor)
-    }).error(value => {
+    }).error((value) => {
       console.log('FAIL')
     })
   })
