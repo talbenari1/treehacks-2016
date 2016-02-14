@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ app.name }}{% if page.name %} | {{ page.name }}{% endif %}</title>
-  {% for file in page.css %}
-    <link rel="stylesheet" href="{{ file }}">
-  {% endfor %}
+  <title><$ app.name $><% if page.name %> | <$ page.name $><% endif %></title>
+  <% for file in page.css %>
+    <link rel="stylesheet" href="<$ file $>">
+  <% endfor %>
 </head>
 <body>
-  {% block body %}
-  {% endblock %}
-  {% for file in page.js %}
-    <script src="{{ file }}"></script>
-  {% endfor %}
+  <% block body %>
+  <% endblock %>
+  <% for file in page.js %>
+    <script src="<$ file $>"></script>
+  <% endfor %>
 </body>
 </html>
