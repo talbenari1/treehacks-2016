@@ -22,7 +22,7 @@ module.exports = (app) => {
             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
           ]
         },
-        'recents': recents
+        'recents': JSON.stringify(recents)
       })
     })
   })
