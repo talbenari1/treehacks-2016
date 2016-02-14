@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 
-$sidebar-width: 300px;
+$sidebar-width: 350px;
 
 * {
   box-sizing: border-box;
@@ -27,7 +27,7 @@ aside {
 
     input {
       font: inherit;
-      width: 250px;
+      width: 300px;
       padding: 10px;
       outline: none;
       border: 1px solid #DDDDDD;
