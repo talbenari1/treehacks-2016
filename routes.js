@@ -17,10 +17,10 @@ module.exports = (app) => {
         'name': 'Home',
         'page': {
           'js': [
-             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js', 
-             'static/home.js',
-             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
-           ]
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js',
+            'static/home.js',
+            'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
+          ]
         },
         'recents': recents
       })
@@ -59,7 +59,7 @@ module.exports = (app) => {
 
     if (util.isClean(body)) {
       Log.get(objectId).run().then((log) => {
-        Log.merge(body).save().then((result) => {
+        log.merge(body).save().then((result) => {
           res.status(200).end()
         })
       })
@@ -79,7 +79,7 @@ module.exports = (app) => {
 
         return false
       }, true)
-    })).run().then(values => {
+    })).limit(10).run().then(values => {
       res.send(values)
     }).error(err => {
       console.log(err)
