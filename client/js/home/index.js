@@ -4,7 +4,7 @@
 
 import '../../scss/home.scss'
 let app = angular.module('homePage', []);
-app.controller('HomePageController', ['$scope','$http', function($scope, $http) {
+app.controller('HomePageController', ['$scope','$http', '$location', function($scope, $http, $location) {
 
   $scope.waypoints = [];
   //$scope.photo = '';
@@ -16,7 +16,6 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
     logs.forEach(log => {
       log.cities = log.cities.map(city => city.name).join(', ')
     })
-
     return logs
   }
 
@@ -76,6 +75,10 @@ app.controller('HomePageController', ['$scope','$http', function($scope, $http) 
     }, function() {
       console.log("you failed, but don\'t ever let you stop that from trying again and again! We believe in you!");
     });
+  }
+
+  $scope.generateMap = function(trip) {
+    $location.path('/l/'+ trip.id);
   }
 
   angular.element(document).ready(function () {

@@ -23,7 +23,7 @@
 
   <div id="trip-container">
      <div class="trips grow" ng-repeat="trip in trips" >
-       <div id="{{ trip.id }}">
+       <div id="trips-wrapper" ng-click="generateMap(trip)">
           <span class="rating">
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           </span>
