@@ -22,17 +22,8 @@ module.exports = (app) => {
             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'
           ]
         },
-        'recents': recents
+        'recents': JSON.stringify(recents)
       })
-    })
-  })
-
-  app.get('/results', (req, res) => {
-    res.render('results.html', {
-      'name': 'Results',
-      'page': {
-        'js': ['static/results.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
-      }
     })
   })
 
@@ -49,7 +40,12 @@ module.exports = (app) => {
 
   app.get('/l/:id', (req, res) => {
     r.table('Log').get(req.params.id).run().then((log) => {
-      res.render('')
+      res.render('log.html', {
+        'name': 'Results',
+        'page': {
+          'js': ['static/log.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
+        }
+      })
     })
   })
 

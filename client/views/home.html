@@ -23,25 +23,27 @@
 
   <div id="trip-container">
      <div class="trips grow" ng-repeat="trip in trips" >
-       <div id="trips-wrapper">
+       <div id="{{ trip.id }}">
           <span class="rating">
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           </span>
           <div class="title" >
-            {{trip.title}}
+            {{ trip.title }}
           </div>
           <div class="destinations">
-            {{trip.citiesVisited}}
+            {{ trip.cities }}
           </div>
           <div class="time">
-            {{trip.time}}
+            {{ trip.log_create_date }}
           </div>
           <div class="description">
-            {{trip.body}}
+            {{ trip.body }}
           </div>
        </div>
     </div>
   </div>
 </div>
+
+<script>var recents = <$ recents | safe $>;</script>
 
 <% endblock %>

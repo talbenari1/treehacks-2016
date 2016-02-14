@@ -23,3 +23,11 @@ exports.isClean = (obj) => {
   }
   return true
 }
+
+exports.matchModel = (model, obj) => {
+  for (let item in model) {
+    if (!obj.hasOwnProperty(item)) {
+      return false
+    }
+  }
+}
