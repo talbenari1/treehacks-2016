@@ -1,6 +1,25 @@
 @import "partials/_sidebar.scss";
 @import "partials/_pagesetup.scss";
 
+#searchresults {
+  
+}
+
+.results {
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.24);
+
+  .result-image{
+    margin-right: 20px;
+  }
+  img {
+    height: 20px;
+     width: 20px; 
+  } 
+  .result-names {
+  }
+}
+
 #trip-container {
   width: 74%; 
   float: right;

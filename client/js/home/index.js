@@ -3,6 +3,7 @@ import '../../scss/home.scss'
 var app = angular.module('homePage', []);
 app.controller('homePageController', function($scope) {
   $scope.waypoints = [];
+  //$scope.photo = '';
 
   function autocomplete() {
     // Create the autocomplete object, restricting the search to geographical
@@ -16,6 +17,16 @@ app.controller('homePageController', function($scope) {
     autocomplete.addListener('place_changed', fillInBar);
   }
 
+  //grab photos from maps
+  function createPhoto(place) {
+    var photos = place.photos;
+    if (!photos) {
+      return;
+    } else {
+      return photos;
+    }
+    console.log("got here");
+  }
   function fillInBar() {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
@@ -39,6 +50,7 @@ app.controller('homePageController', function($scope) {
       });
     }
   }
+
 
   angular.element(document).ready(function () {
     autocomplete();
