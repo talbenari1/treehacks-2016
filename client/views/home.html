@@ -1,6 +1,5 @@
-{% extends 'layout.html' %}
-
-{% block body %}
+<% extends 'layout.html' %>
+<% block body %>
 
 <aside>
   <div id="search">
@@ -10,7 +9,6 @@
 
 <div id="trip-container" ng-app="homePage" ng-controller="homePageController" ng-cloak>
    <div class="trips" ng-repeat="trip in trips" >
-      dfalskdjf asdfio jasdi a
       <em>{{trip.title}}</em>
       {{trip.citiesVisited}}<br>
       {{trip.body}}
@@ -20,5 +18,4 @@
    </div>
 </div>
 
-{% endblock %}
-
+<% endblock %>
