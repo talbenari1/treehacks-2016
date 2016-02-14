@@ -4,8 +4,8 @@
 
 import '../../scss/home.scss'
 let app = angular.module('homePage', []);
-app.controller('HomePageController', ['$scope','$http', '$location', function($scope, $http, $location) {
-
+app.controller('HomePageController', ['$scope','$http', '$window', '$location', '$route' function ($scope, $http, $window, $location, $route) {
+  $scope.moment = $window.moment
   $scope.waypoints = [];
   //$scope.photo = '';
   let autocomplete;
