@@ -18,6 +18,7 @@ module.exports = (app) => {
         'page': {
           'js': [
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js',
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js',
             'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js',
             '/static/home.js',
             'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&signed_in=true&libraries=places'

@@ -1,10 +1,24 @@
+A
 /* globals google angular recents */
 
 'use strict'
 
 import '../../scss/home.scss'
-let app = angular.module('homePage', []);
-app.controller('HomePageController', ['$scope','$http', '$location', function($scope, $http, $location) {
+let app = angular.module('homePage', ['ngRoute']);
+
+app.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+    $routeProvider
+      .when('/l/:id', {
+        templateUrl: '../../views/log.html',
+        controller: 'BookCtrl',
+        controllerAs: 'book'
+      });
+
+//    $locationProvider.html5Mode(true);
+}]);
+
+app.controller('HomePageController', ['$scope','$http', '$location', '$route', function ($scope, $http, $location, $route) {
 
   $scope.waypoints = [];
   //$scope.photo = '';
