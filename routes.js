@@ -59,7 +59,7 @@ module.exports = (app) => {
 
     if (util.isClean(body)) {
       Log.get(objectId).run().then((log) => {
-        Log.merge(body).save().then((result) => {
+        log.merge(body).save().then((result) => {
           res.status(200).end()
         })
       })
@@ -79,7 +79,7 @@ module.exports = (app) => {
 
         return false
       }, true)
-    })).run().then(values => {
+    })).limit(10).run().then(values => {
       res.send(values)
     }).error(err => {
       console.log(err)
