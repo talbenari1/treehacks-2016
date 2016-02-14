@@ -1,7 +1,7 @@
 'use strict'
 
-let thinky = require('thinky')({
+const thinky = require('thinky')({
   'db': 'glogger'
 })
 
-exports.thinky = thinky
+module.exports = thinky

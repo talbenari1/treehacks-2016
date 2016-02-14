@@ -2,12 +2,14 @@
 
 const express = require('express')
 const path = require('path')
+const models = require('./models')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
 
   app.get('/', (req, res) => {
     res.render('home.html', {
+      'name': 'Home',
       'page': {
         'js': ['static/home.js']
       }
@@ -16,20 +18,21 @@ module.exports = (app) => {
 
   app.get('/results', (req, res) => {
     res.render('results.html', {
+      'name': 'Results',
       'page': {
         'js': ['static/results.js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjA3qcCd-vKs8LKnXEwoZrVLQQLgEeAIQ&callback=initMap']
       }
     })
   })
 
-/*  
-  app.get('/home',(req, res) => {
-    res.render('home.html', {
+  app.get('/new', (req, res) => {
+    res.render('new.html', {
       'page': {
-          'name': 'Home',
-          'js' : ['static/home.js',]
-  }
-*/
+        'name': 'new'
+      }
+    })
+  })
+
   app.get('/l/:id', (req, res) => {
     // return the trip
   })
