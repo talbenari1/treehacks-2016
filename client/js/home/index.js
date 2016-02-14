@@ -2,6 +2,7 @@
 import '../../scss/home.scss'
 var app = angular.module('homePage', []);
 app.controller('homePageController', function($scope) {
+  $scope.waypoints = [];
 
   function autocomplete() {
     // Create the autocomplete object, restricting the search to geographical
@@ -18,7 +19,8 @@ app.controller('homePageController', function($scope) {
   function fillInBar() {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
-    console.log(place);
+    $scope.waypoints.push(place);
+    $scope.$apply();
   }
 
   // Bias the autocomplete object to the user's geographical location,
@@ -61,5 +63,6 @@ app.controller('homePageController', function($scope) {
         body: '. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
       }
   ];
+  
 });
 
