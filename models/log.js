@@ -19,4 +19,6 @@ let Log = thinky.createModel('Log', {
   }]
 })
 
+Log.ensureIndex('log_create_date')
+
 module.exports = Log
