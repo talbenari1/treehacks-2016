@@ -10,6 +10,16 @@ exports.merge = (obj1, obj2) => {
   return obj1
 }
 
-exports.santize = (obj) => {
-
+exports.isClean = (obj) => {
+  for (let item in obj) {
+    if (obj.hasOwnProperty(item)) {
+      if (obj[item].constructor && obj[item].constructor === 'Object') {
+        exports.sanitize(obj[item])
+      }
+      if (!obj[item]) {
+        return false
+      }
+    }
+  }
+  return true
 }
