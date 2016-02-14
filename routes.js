@@ -48,20 +48,19 @@ module.exports = (app) => {
 
   app.post('/search', (req, res) => {
     const searches = req.body.searches
-    let logs = Log
+    Log.filter(r.row('cities').contains(city => {
+      const name = city('name')
+      return searches.reduce((hasCity, search) => {
+        if (hasCity) {
+          return name.eq(search)
+        }
 
-    searches.forEach((search) => {
-      logs = logs.filter(r.row('cities').contains({
-        name: search
-      }))
-    })
-
-    logs.run().then((values) => {
-      values = values.map((value) => value.toObject())
-
-      console.log(values[0].constructor)
-    }).error((value) => {
-      console.log('FAIL')
+        return false
+      }, true)
+    })).run().then(values => {
+      res.send(values)
+    }).error(err => {
+      console.log(err)
     })
   })
 }
