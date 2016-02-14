@@ -2,6 +2,7 @@
 
 const express = require('express')
 const path = require('path')
+const r = require('./database').r
 const models = require('./models')
 
 module.exports = (app) => {
@@ -41,7 +42,22 @@ module.exports = (app) => {
     // create a new trip
   })
 
-  app.get('/search', (req, res) => {
-    // return a series of results
+  app.post('/search', (req, res) => {
+    const searches = req.body.searches
+    let logs = models.Log
+
+    searches.forEach(search => {
+      logs = logs.filter(r.row('cities').contains({
+        name: search
+      }))
+    })
+
+    logs.run().then(values => {
+      values = values.map(value => value.toObject())
+
+      console.log(values[0].constructor)
+    }).error(value => {
+      console.log('FAIL')
+    })
   })
 }
