@@ -2,6 +2,8 @@
 
 const express = require('express')
 const path = require('path')
+const util = require('./util.js')
+
 const thinky = require('./database.js')
 const r = thinky.r
 const Log = require('./models/log.js')
@@ -10,11 +12,14 @@ module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
 
   app.get('/', (req, res) => {
-    res.render('home.html', {
-      'name': 'Home',
-      'page': {
-        'js': ['https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js', 'static/home.js']
-      }
+    r.table('Log').orderBy({ 'index': 'log_create_date' }).limit(10).run().then((recents) => {
+      res.render('home.html', {
+        'name': 'Home',
+        'page': {
+          'js': ['https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js', 'static/home.js']
+        },
+        'recents': recents
+      })
     })
   })
 
@@ -39,11 +44,24 @@ module.exports = (app) => {
   })
 
   app.get('/l/:id', (req, res) => {
-    // Search the database for objects with id = :id (aka hashLink)
+    r.table('Log').get(req.params.id).run().then((log) => {
+      res.render('')
+    })
   })
 
-  app.post('/l/:id', (req, res) => {
-    // create a new trip
+  app.put('/l/:id', (req, res) => {
+    let objectId = req.params.id
+    const body = req.body
+
+    if (util.isClean(body)) {
+      Log.get(objectId).run().then((log) => {
+        Log.merge(body).save().then((result) => {
+          res.status(200).end()
+        })
+      })
+    } else {
+      res.status(400).json({ 'error': 'Missing or invalid params' })
+    }
   })
 
   app.post('/search', (req, res) => {
