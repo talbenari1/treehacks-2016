@@ -2,7 +2,8 @@
 
 const express = require('express')
 const path = require('path')
-const models = require('./models')
+const thinky = require('./database.js')
+const Log = require('./models/log.js')
 
 module.exports = (app) => {
   app.use('/static', express.static(path.join(__dirname, 'public')))
@@ -15,16 +16,19 @@ module.exports = (app) => {
     })
   })
 
-  app.get('/new', (req, res) => {
-    res.render('new.html', {
-      'page': {
-        'name': 'new'
-      }
+  app.post('/new', (req, res) => {
+    // Save empty object in database
+    let hashLink = require('bs58').encode(require('crypto').randomBytes(6))
+    new Log({
+      'id': hashLink
+    }).save().then((user) => {
+      console.log(user)
     })
+    res.send(hashLink)
   })
 
   app.get('/l/:id', (req, res) => {
-    // return the trip
+    // Search the database for objects with id = :id (aka hashLink)
   })
 
   app.post('/l/:id', (req, res) => {
