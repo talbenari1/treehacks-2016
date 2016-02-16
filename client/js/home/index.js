@@ -63,11 +63,10 @@ app.controller('HomePageController', ['$scope', '$http', '$window', '$location',
   function fillInBar () {
     // Get the place details from the autocomplete object.
     let place = autocomplete.getPlace()
-    $scope.waypoints.push(place)
+    $scope.$apply($scope.waypoints.push(place));
     data.searches.push(place.formatted_address)
     requestServer(data)
     if ($location.path() !== ('/')) $location.path('/')
-    $scope.$apply()
   }
 
   // Bias the autocomplete object to the user's geographical location,
